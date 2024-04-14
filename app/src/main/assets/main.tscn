@@ -1,0 +1,29 @@
+[gd_scene load_steps=6 format=3 uid="uid://baepqs7npy6y3"]
+
+[ext_resource type="Script" path="res://TestPlugin.gd" id="1_1rxjt"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_7f3v6"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_pfxqu"]
+
+[sub_resource type="Sky" id="Sky_n0kda"]
+sky_material = SubResource("ProceduralSkyMaterial_pfxqu")
+
+[sub_resource type="Environment" id="Environment_ovke1"]
+background_mode = 2
+sky = SubResource("Sky_n0kda")
+
+[node name="Node3D" type="Node3D"]
+script = ExtResource("1_1rxjt")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_7f3v6")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_ovke1")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldEnvironment"]
+transform = Transform3D(1, 0, 0, 0, 0.27827, 0.960503, 0, -0.960503, 0.27827, 0, 2.00707, 0)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.82381, 0.566866, 0, -0.566866, 0.82381, 0, 1.43776, 2.16005)
